@@ -11,7 +11,10 @@
     "url": "?.git"
   },
   "author": "Gabor Gellai",
-  dependences: {
-    gulp: 
+  "dependences": {
+    "gulp": "3.9.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
   }
 }

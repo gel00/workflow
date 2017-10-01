@@ -1,1 +1,1 @@
-# Workflofs Course
+# Workflows Course
