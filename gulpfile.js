@@ -1,8 +1,16 @@
-var gulp = require('gulp'),
+var gulp = require('gulp'), // de facto javascript dependency statement
     gutil = require('gulp-util'),
-    coffee = require('gulp-coffee');
+    coffee = require('gulp-coffee'),
+    concat = require('gulp-concat');
 
 var coffeeSources = ['components/coffee/tagline.coffee'];
+var jsSources = [
+  'components/scripts/rclick.js',
+  'components/scripts/pixgrid.js',
+  'components/scripts/tagline.js',
+  'components/scripts/template.js',
+
+];
 
 gulp.task('coffee', function() {
   gulp.src(coffeeSources)
@@ -10,3 +18,9 @@ gulp.task('coffee', function() {
       .on('error', gutil.log))  //case of invalid coffeescript log the error
     .pipe(gulp.dest('components/scripts'))//pipe the result back to gulp and insert to the destination
 });
+
+gulp.task('js', function() {
+  gulp.src(jsSources)
+    .pipe(concat('script.js'))
+    .pipe(gulp.dest('builds/development/js'))
+})
