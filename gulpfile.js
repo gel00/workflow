@@ -22,7 +22,7 @@ gulp.task('coffee', function() {
     .pipe(gulp.dest('components/scripts'))//pipe the result back to gulp and insert to the destination
 });
 
-gulp.task('js', function() {
+gulp.task('js',function() {
   gulp.src(jsSources)
     .pipe(concat('script.js'))
     .pipe(browserify())
@@ -38,6 +38,12 @@ gulp.task('compass', function () {
     }))
     .on('error', gutil.log)
     .pipe(gulp.dest('builds/development/css'))
+});
+
+gulp.task('watch', function() {
+  gulp.watch(coffeeSources, ['coffee']);
+  gulp.watch(jsSources, ['js']);
+  gulp.watch('components/sass/*.scss',['compass']);
 });
 
 gulp.task('default', ['coffee', 'js', 'compass']);

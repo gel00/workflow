@@ -52,7 +52,7 @@ var pixgrid = function() {
                 myOverlay.style.top = window.pageYOffset + "px", myOverlay.style.left = window.pageXOffset + "px";
                 var imageSrc = e.target.src, largeImage = document.createElement("img");
                 largeImage.id = "largeImage", largeImage.src = imageSrc.substr(0, imageSrc.length - 7) + ".jpg", 
-                largeImage.style.display = "block", largeImage.style.position = "absolute", largeImage.addEventListener("load", function() {
+                largeImage.style.display = "block", largeImage.style.position = "absolute", largeImage.style.cursor = "url(images/misc/magnifying_glass2.png), auto", largeImage.addEventListener("load", function() {
                     this.height > window.innerHeight && (this.ratio = window.innerHeight / this.height, 
                     this.height = this.height * this.ratio, this.width = this.width * this.ratio), this.width > window.innerWidth && (this.ratio = window.innerWidth / this.width, 
                     this.height = this.height * this.ratio, this.width = this.width * this.ratio), centerImage(this), 
@@ -76,7 +76,7 @@ var $, fill;
 $ = require('jquery');
 
 (fill = function(item) {
-  return $('.tagline').append("{#item}");
+  return $('.tagline').append("" + item);
 })('The most creative minds in Art');
 
 fill;
